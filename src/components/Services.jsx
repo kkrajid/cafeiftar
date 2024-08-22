@@ -25,22 +25,43 @@ const ServiceCard = ({ service }) => (
 );
 
 function Services() {
+  // const serviceList = [
+  //   {
+  //     id: 1,
+  //     image: "/api/placeholder/64/64",
+  //     title: 'Dine In',
+  //     description: 'Experience Flavorful Moments: Dine In and Savor Every Bite.',
+  //   },
+  //   {
+  //     id: 2,
+  //     image: "/api/placeholder/64/64",
+  //     title: 'Take Away',
+  //     description: 'Delight in Convenience: Grab Your Favorite Flavors To Go.',
+  //   },
+  //   {
+  //     id: 3,
+  //     image: "/api/placeholder/64/64",
+  //     title: 'Home Delivery',
+  //     description: 'Bringing Joy to Your Doorstep: Enjoy the Comfort of Home Delivery.',
+  //   },
+  // ];
+
   const serviceList = [
     {
       id: 1,
-      image: "/api/placeholder/64/64",
+      image: "https://zrtechsolutions.com/demo/html/dhaba/assets/images/icons/dining.svg",
       title: 'Dine In',
       description: 'Experience Flavorful Moments: Dine In and Savor Every Bite.',
     },
     {
       id: 2,
-      image: "/api/placeholder/64/64",
+      image: "https://zrtechsolutions.com/demo/html/dhaba/assets/images/icons/take-away.svg",
       title: 'Take Away',
       description: 'Delight in Convenience: Grab Your Favorite Flavors To Go.',
     },
     {
       id: 3,
-      image: "/api/placeholder/64/64",
+      image: "https://zrtechsolutions.com/demo/html/dhaba/assets/images/icons/food-delivery.svg",
       title: 'Home Delivery',
       description: 'Bringing Joy to Your Doorstep: Enjoy the Comfort of Home Delivery.',
     },
