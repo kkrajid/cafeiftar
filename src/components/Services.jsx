@@ -1,49 +1,65 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const ServiceCard = ({ service }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center"
+  >
+    <div className="w-24 h-24 mb-6 bg-[#abac7f] rounded-full flex items-center justify-center">
+      <img
+        src={service.image}
+        alt={service.title}
+        className="w-16 h-16"
+      />
+    </div>
+    <h3 className="text-2xl font-bold mb-3 text-[#abac7f]">
+      {service.title}
+    </h3>
+    <p className="text-gray-600 text-center">
+      {service.description}
+    </p>
+  </motion.div>
+);
 
 function Services() {
   const serviceList = [
     {
       id: 1,
-      image: "https://zrtechsolutions.com/demo/html/dhaba/assets/images/icons/dining.svg",
+      image: "/api/placeholder/64/64",
       title: 'Dine In',
       description: 'Experience Flavorful Moments: Dine In and Savor Every Bite.',
     },
     {
       id: 2,
-      image: "https://zrtechsolutions.com/demo/html/dhaba/assets/images/icons/take-away.svg",
+      image: "/api/placeholder/64/64",
       title: 'Take Away',
       description: 'Delight in Convenience: Grab Your Favorite Flavors To Go.',
     },
     {
       id: 3,
-      image: "https://zrtechsolutions.com/demo/html/dhaba/assets/images/icons/food-delivery.svg",
+      image: "/api/placeholder/64/64",
       title: 'Home Delivery',
       description: 'Bringing Joy to Your Doorstep: Enjoy the Comfort of Home Delivery.',
     },
   ];
 
   return (
-    <section id="services-menu" className="pt-16">
-      <div className="container mx-auto md:px-24 px-4">
-        {/* <h2 className="text-center text-3xl md:text-4xl font-bold mb-12">Our Services</h2> */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="services-menu" className="py-20 bg-gray-100">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center text-4xl md:text-5xl font-bold mb-16 text-[#abac7f]"
+        >
+          Our Services
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceList.map((service) => (
-            <div
-              key={service.id}
-              className="service-card text-center bg-white p-6 rounded-lg"
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="mx-auto mb-4 w-24 h-24"
-              />
-              <h3 className="text-xl font-bold mb-2 text-[#abac7f]">
-                {service.title}
-              </h3>
-              <p className="text-[#abac7f]">
-                {service.description}
-              </p>
-            </div>
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
       </div>
