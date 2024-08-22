@@ -8,11 +8,12 @@ const ServiceCard = ({ service }) => (
     transition={{ duration: 0.5 }}
     className="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center"
   >
-    <div className="w-24 h-24 mb-6 bg-[#abac7f] rounded-full flex items-center justify-center">
+    <div className="w-24 h-24 mb-6 bg-[#abac7f]  rounded-full flex items-center justify-center">
       <img
         src={service.image}
         alt={service.title}
-        className="w-16 h-16"
+        className="w-16 h-16 "
+        style={{ filter: "brightness(0) invert(1)" }} 
       />
     </div>
     <h3 className="text-2xl font-bold mb-3 text-[#abac7f]">
