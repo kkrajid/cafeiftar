@@ -111,7 +111,7 @@ const Navbar = () => {
               <div className="text-left">
                 <span className="text-sm">Call Us</span>
                 <br />
-                <span className="text-sm font-semibold">+91 4365 769867</span>
+                <span className="text-sm font-semibold">+91 9895 896664</span>
               </div>
             </div>
           </div>

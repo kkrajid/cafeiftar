@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="bg-gray-800 text-white p-4">
       <div className="container mx-auto text-center">
-        <p className="mb-4">&copy; 2024 Restaurant Name</p>
+        <p className="mb-4">&copy; 2024 cafe iftar</p>
         <ul className="flex justify-center space-x-4 mb-4">
           <li><a href="/privacy-policy" className="hover:underline">Privacy Policy</a></li>
           <li><a href="/terms-of-service" className="hover:underline">Terms of Service</a></li>

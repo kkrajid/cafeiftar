@@ -15,8 +15,8 @@ function Home() {
   ];
 
   const reviews = [
-    { id: 1, text: 'Amazing food and great service!', author: 'John Doe' },
-    { id: 2, text: 'The best restaurant in town.', author: 'Jane Smith' },
+    { id: 1, text: 'Amazing food and great service!', author: 'dssds' },
+    { id: 2, text: 'The best restaurant in town.', author: 'Jdsds' },
     // Add more reviews
   ];
 
