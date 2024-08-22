@@ -129,7 +129,7 @@ const Hero = () => {
                 transition={{ delay: 0.8 }}
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#E0CA3C] font-bold mb-4 sm:mb-5 md:mb-6"
               >
-                ORDER: +91 345465464
+                ORDER: +91 9895 896664
               </motion.h3>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
