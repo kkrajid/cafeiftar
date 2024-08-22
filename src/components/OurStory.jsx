@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const FeatureItem = ({ icon, text }) => (
@@ -8,10 +8,51 @@ const FeatureItem = ({ icon, text }) => (
     transition={{ duration: 0.5 }}
     className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md"
   >
-    <span className="text-3xl">{icon}</span> {/* Increased icon size for better visibility */}
+    <span className="text-3xl">{icon}</span>
     <span className="mt-2 text-center text-gray-700 text-sm md:text-base">{text}</span>
   </motion.div>
 );
+
+const ImageSlideshow = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [
+    "https://zrtechsolutions.com/demo/html/dhaba/assets/images/s2.png",
+    "https://www.collinsdictionary.com/images/full/restaurant_135621509_1000.jpg?version=6.0.28",
+    "https://media.cntraveler.com/photos/654bd5e13892537a8ded0947/16:9/w_2560%2Cc_limit/phy2023.din.oss.restaurant-lr.jpg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative w-full h-60 md:h-80 lg:h-[440px]">
+  <div className="w-full h-full overflow-hidden rounded-lg shadow-2xl p-4 relative">
+    {images.map((src, index) => (
+      <motion.img
+        key={src}
+        src={src}
+        alt={`Slideshow image ${index + 1}`}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: index === currentImage ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
+      />
+    ))}
+  </div>
+  <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-white p-4 md:p-6 rounded-full shadow-2xl z-10">
+    <span className="text-xl md:text-2xl font-bold">6+</span>
+    <br />
+    <span className="text-xs md:text-sm">Years of Excellence</span>
+  </div>
+</div>
+
+  );
+};
 
 const OurStory = () => {
   const features = [
@@ -26,7 +67,7 @@ const OurStory = () => {
   ];
 
   return (
-    <section id="our-story" className="py-20 bg-gray-100 overflow-x-hidden"> {/* Added overflow-x-hidden */}
+    <section id="our-story" className="py-20 bg-gray-100 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -49,18 +90,7 @@ const OurStory = () => {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2"
           >
-            <div className="relative">
-              <img
-                src="https://zrtechsolutions.com/demo/html/dhaba/assets/images/s2.png"
-                alt="Chef in action"
-                className="rounded-lg shadow-2xl w-full"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-white p-4 rounded-full shadow-lg">
-                <span className="text-2xl font-bold">6+</span>
-                <br />
-                <span className="text-sm">Years of Excellence</span>
-              </div>
-            </div>
+            <ImageSlideshow />
           </motion.div>
 
           <motion.div
