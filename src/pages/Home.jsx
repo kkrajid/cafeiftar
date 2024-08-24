@@ -1,10 +1,12 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import MenuHighlights from '../components/MenuHighlights';
-import Testimonials from '../components/Testimonials';
+import TestimonialsSection from '../components/TestimonialsSection';
 import OurDelicious from '../components/OurDelicious'; // Import the OurDelicious component
 import Services from '../components/Services';
 import OurStory from '../components/OurStory';
+import FeaturesAndPopular from '../components/FeaturesAndPopular';
+import ImageGallery from '../components/ImageGallery';
 
 function Home() {
   // Sample data for demonstration
@@ -23,11 +25,13 @@ function Home() {
   return (
     <div>
       <Hero />
-      <Services/>
+      <FeaturesAndPopular/>
+      {/* <Services/> */}
       <OurStory/>
-      <MenuHighlights dishes={dishes} />
-      <OurDelicious dishes={dishes} /> {/* Include the OurDelicious component */}
-      <Testimonials reviews={reviews} />
+      {/* <MenuHighlights dishes={dishes} /> */}
+      <ImageGallery/>
+      {/* <OurDelicious dishes={dishes} />  */}
+      <TestimonialsSection />
     </div>
   );
 }

@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faPhone, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Menu, X, ShoppingBag, Phone } from 'lucide-react';
+import image from '../assets/images'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,7 +13,6 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -26,93 +26,85 @@ const Navbar = () => {
 
   const navItems = [
     { id: 'home-menu', label: 'Home' },
-    { id: 'services-menu', label: 'Our Menu' },
-    { id: 'deal-menu', label: 'Deal' },
+    { id: 'services-menu', label: 'Menu' },
+    { id: 'deal-menu', label: 'Deals' },
     { id: 'gallery', label: 'Gallery' },
   ];
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-sans ${
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
       } ${
-        isMobileMenuOpen ? 'bg-white' : '' // Ensures background is white when mobile menu is open
+        isMobileMenuOpen ? 'bg-white' : ''
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="bg-[#979870] p-2 rounded-md">
-              <img src="https://zrtechsolutions.com/demo/html/dhaba/assets/images/logo.svg" alt="Dhaba Logo" className="h-8 w-auto" />
+            <div className="bg-purple-600 p-2 rounded-lg">
+              <img src={image.logo} alt="Cafe Iftar Logo" className="h-8 w-auto" />
             </div>
-            <span className="ml-3 text-xl font-bold text-[#979870]">Cafe Iftar</span>
+            <span className="ml-3 text-xl font-bold text-purple-900">Cafe Iftar</span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-[#abac7f] hover:text-[#979870] transition-colors duration-200"
+                className="text-purple-700 hover:text-purple-500 transition-colors duration-200 text-sm uppercase tracking-wide"
               >
                 {item.label}
               </button>
             ))}
             <button
               onClick={() => scrollToSection('order-now')}
-              className="flex items-center bg-[#979870] text-white py-2 px-4 rounded-full hover:bg-[#7a7b5a] transition-colors duration-200"
+              className="flex items-center bg-purple-600 text-white py-2 px-4 rounded-full hover:bg-purple-700 transition-all duration-200 text-sm uppercase tracking-wide transform hover:scale-105"
             >
-              <FontAwesomeIcon icon={faCalendar} className="mr-2" />
+              <ShoppingBag className="mr-2 h-4 w-4" />
               Order Now
             </button>
-            <div className="flex items-center text-[#abac7f]">
-              <FontAwesomeIcon icon={faPhone} className="text-2xl mr-2" />
-              <div className="text-left">
-                <span className="text-sm">Call Us</span>
-                <br />
-                <span className="text-sm font-semibold">+91 9895 896664</span>
-              </div>
+            <div className="flex items-center text-purple-700 hover:text-purple-500 transition-colors duration-200">
+              <Phone className="h-5 w-5 mr-2" />
+              <span className="text-sm font-medium">+91 9895 896664</span>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md text-[#979870] hover:bg-[#979870] hover:text-white transition-colors duration-200"
+            className="lg:hidden p-2 rounded-full text-purple-700 hover:bg-purple-100 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} className="text-xl" />
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 bg-white"> {/* Ensure mobile menu background is white */}
+          <div className="lg:hidden mt-4 bg-white rounded-lg shadow-lg overflow-hidden">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-2 text-[#abac7f] hover:bg-[#979870] hover:text-white transition-colors duration-200"
+                className="block w-full text-left py-3 px-4 text-purple-700 hover:bg-purple-50 hover:text-purple-500 transition-colors duration-200 text-sm uppercase tracking-wide"
               >
                 {item.label}
               </button>
             ))}
             <button
               onClick={() => scrollToSection('order-now')}
-              className="flex items-center justify-center w-full bg-[#979870] text-white py-2 px-4 mt-2 rounded-full hover:bg-[#7a7b5a] transition-colors duration-200"
+              className="flex items-center justify-center w-full bg-purple-600 text-white py-3 px-4 hover:bg-purple-700 transition-colors duration-200 text-sm uppercase tracking-wide"
             >
-              <FontAwesomeIcon icon={faCalendar} className="mr-2" />
+              <ShoppingBag className="mr-2 h-4 w-4" />
               Order Now
             </button>
-            <div className="flex items-center justify-center mt-4 text-[#abac7f]">
-              <FontAwesomeIcon icon={faPhone} className="text-2xl mr-2" />
-              <div className="text-left">
-                <span className="text-sm">Call Us</span>
-                <br />
-                <span className="text-sm font-semibold">+91 9895 896664</span>
-              </div>
+            <div className="flex items-center justify-center p-4 text-purple-700 bg-purple-50">
+              <Phone className="h-5 w-5 mr-2" />
+              <span className="text-sm font-medium">+91 9895 896664</span>
             </div>
           </div>
         )}

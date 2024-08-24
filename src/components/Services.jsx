@@ -8,7 +8,7 @@ const ServiceCard = ({ service }) => (
     transition={{ duration: 0.5 }}
     className="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center"
   >
-    <div className="w-24 h-24 mb-6 bg-[#abac7f]  rounded-full flex items-center justify-center">
+    <div className="w-24 h-24 mb-6 bg-[#570987]  rounded-full flex items-center justify-center">
       <img
         src={service.image}
         alt={service.title}
@@ -16,7 +16,7 @@ const ServiceCard = ({ service }) => (
         style={{ filter: "brightness(0) invert(1)" }} 
       />
     </div>
-    <h3 className="text-2xl font-bold mb-3 text-[#abac7f]">
+    <h3 className="text-2xl font-bold mb-3 text-[#570987]">
       {service.title}
     </h3>
     <p className="text-gray-600 text-center">
@@ -75,7 +75,7 @@ function Services() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center text-4xl md:text-5xl font-bold mb-16 text-[#abac7f]"
+          className="text-center text-4xl md:text-5xl font-bold mb-16 text-[#570987]"
         >
           Our Services
         </motion.h2>
