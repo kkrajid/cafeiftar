@@ -1,11 +1,7 @@
-
-
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import images from '../assets/images';
-
-
 
 const slides = [
   {
@@ -30,6 +26,7 @@ const slides = [
     subtitle: 'Garlic Sauce, Mustard Sauce, Onion, Bread with 1 Liter Cold Drink',
   },
 ];
+
 const slideVariants = {
   enter: (direction) => ({
     x: direction > 0 ? '100%' : '-100%',
@@ -99,7 +96,7 @@ const Hero = () => {
             style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
             aria-hidden="true"
           />
-          <div className="absolute inset-0  bg-opacity-70" aria-hidden="true" />
+          <div className="absolute inset-0 bg-opacity-70" aria-hidden="true" />
           <div className="relative flex flex-col justify-center h-full text-white p-4 sm:p-6 md:p-8 lg:p-16">
             <div className="w-full max-w-xl mx-auto md:mx-0 md:ml-8 lg:ml-16 xl:ml-24 text-center md:text-left">
               <motion.h3
@@ -135,13 +132,13 @@ const Hero = () => {
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
-                <span className="ml-2 text-sm sm:text-base text-purple-100">4.9 (1  .5k+ Reviews)</span>
+                <span className="ml-2 text-sm sm:text-base text-purple-100">4.9 (1.5k+ Reviews)</span>
               </motion.div>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
-                className="bg-purple-600 text-white py-3 px-8 rounded-full text-base sm:text-lg font-semibold hover:bg-purple-500 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50 shadow-lg"
+                className="bg-purple-300 text-white py-3 px-8 rounded-full text-base sm:text-lg font-semibold hover:bg-purple-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50 shadow-lg"
                 onClick={handleOrder}
               >
                 Order Now
@@ -169,7 +166,7 @@ const Hero = () => {
           <button
             key={index}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'bg-purple-400' : 'bg-white bg-opacity-50'
+              index === currentIndex ? 'bg-purple-300' : 'bg-white bg-opacity-50'
             }`}
             onClick={() => {
               setDirection(index > currentIndex ? 1 : -1);

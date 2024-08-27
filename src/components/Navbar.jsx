@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu as MenuIcon, X, ShoppingBag, Phone, ChevronDown, Home, Tag, Image, Utensils } from 'lucide-react';
 import image from '../assets/images';
-import MenuComponent from './MenuComponent' // Import the new MenuComponent
+import MenuComponent from './MenuComponent'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for menu visibility
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dropdownRefs = useRef({});
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const Navbar = () => {
               <button
                 key={subItem.id}
                 onClick={() => scrollToSection(subItem.id)}
-                className="block px-4 py-2 text-sm text-gray-300 hover:bg-purple-900 hover:bg-opacity-50 hover:text-white w-full text-left"
+                className="block px-4 py-2 text-sm text-gray-300 hover:bg-purple-300 hover:bg-opacity-50 hover:text-white w-full text-left"
                 role="menuitem"
               >
                 {subItem.label}
@@ -118,7 +118,7 @@ const Navbar = () => {
     <div className="border-b border-gray-700">
       <button
         onClick={item.onClick || (() => setOpenDropdown(openDropdown === item.id ? null : item.id))}
-        className="flex justify-between items-center w-full py-4 px-5 text-white hover:bg-purple-900 hover:bg-opacity-50 transition-colors duration-200 text-base font-medium"
+        className="flex justify-between items-center w-full py-4 px-5 text-white hover:bg-purple-300 hover:bg-opacity-50 transition-colors duration-200 text-base font-medium"
       >
         <span className="flex items-center">
           <item.icon className="mr-3 h-5 w-5" />
@@ -134,7 +134,7 @@ const Navbar = () => {
             <button
               key={subItem.id}
               onClick={() => scrollToSection(subItem.id)}
-              className="block w-full text-left py-3 px-10 text-gray-300 hover:bg-purple-900 hover:bg-opacity-50 hover:text-white transition-colors duration-200 text-sm"
+              className="block w-full text-left py-3 px-10 text-gray-300 hover:bg-purple-300 hover:bg-opacity-50 hover:text-white transition-colors duration-200 text-sm"
             >
               {subItem.label}
             </button>
@@ -153,22 +153,20 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            {/* Logo */}
             <div className="flex items-center">
-              <div className="bg-purple-600 p-2 rounded-lg">
+              <div className="bg-purple-300 p-2 rounded-lg">
                 <img src={image.logo} alt="Cafe Iftar Logo" className="h-8 w-auto" />
               </div>
               <span className="ml-3 text-xl font-bold text-white">Cafe Iftar</span>
             </div>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <DesktopDropdownMenu key={item.id} item={item} />
               ))}
               <button
                 onClick={() => scrollToSection('order-now')}
-                className="flex items-center bg-purple-600 text-white py-2 px-4 rounded-full hover:bg-purple-700 transition-all duration-200 text-sm uppercase tracking-wide transform hover:scale-105"
+                className="flex items-center bg-purple-300 text-white py-2 px-4 rounded-full hover:bg-purple-400 transition-all duration-200 text-sm uppercase tracking-wide transform hover:scale-105"
               >
                 <ShoppingBag className="mr-2 h-4 w-4" />
                 Order Now
@@ -179,9 +177,8 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-full text-white hover:bg-purple-900 hover:bg-opacity-50 transition-colors duration-200"
+              className="lg:hidden p-2 rounded-full text-white hover:bg-purple-300 hover:bg-opacity-50 transition-colors duration-200"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
@@ -189,7 +186,6 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile Navigation */}
           {isMobileMenuOpen && (
             <div className="lg:hidden mt-4 bg-black bg-opacity-90 backdrop-blur-md rounded-lg shadow-lg overflow-hidden absolute top-full left-0 right-0 border-t border-gray-700">
               <div className="max-h-[calc(100vh-5rem)] overflow-y-auto">
@@ -199,12 +195,12 @@ const Navbar = () => {
                 <div className="p-5 space-y-4">
                   <button
                     onClick={() => scrollToSection('order-now')}
-                    className="flex items-center justify-center w-full bg-purple-600 text-white py-3 px-4 rounded-full hover:bg-purple-700 transition-colors duration-200 text-base font-medium"
+                    className="flex items-center justify-center w-full bg-purple-300 text-white py-3 px-4 rounded-full hover:bg-purple-400 transition-colors duration-200 text-base font-medium"
                   >
                     <ShoppingBag className="mr-2 h-5 w-5" />
                     Order Now
                   </button>
-                  <div className="flex items-center justify-center py-3 px-4 bg-purple-900 bg-opacity-50 rounded-full text-white">
+                  <div className="flex items-center justify-center py-3 px-4 bg-purple-300 bg-opacity-50 rounded-full text-white">
                     <Phone className="h-5 w-5 mr-3" />
                     <span className="text-base font-medium">+91 9895 896664</span>
                   </div>
@@ -214,8 +210,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-      
-      {/* Menu Component */}
+
       {isMenuOpen && <MenuComponent onClose={() => setIsMenuOpen(false)} />}
     </>
   );
