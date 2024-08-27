@@ -153,9 +153,9 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
-                className="py-3 px-8 rounded-full text-base sm:text-lg font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-opacity-50 shadow-lg"
+                className="py-3 px-8 rounded-full text-base bg-purple-300 sm:text-lg font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-opacity-50 shadow-lg"
                 style={{ 
-                  backgroundColor: colors.primary,
+                  // backgroundColor: colors.primary,
                   color: colors.text,
                   ':hover': { backgroundColor: colors.primaryDark },
                   ':focus': { ringColor: colors.primaryLight }

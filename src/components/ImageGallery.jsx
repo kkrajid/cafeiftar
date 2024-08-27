@@ -19,7 +19,6 @@ const images = [
     src: image.imageGalleryImages.image3,
     alt: "Exterior 1",
   },
- 
 ];
 
 const ImageGallery = () => {
@@ -74,15 +73,12 @@ const ImageGallery = () => {
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 lg:mb-12 leading-tight">
           Discover Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-yellow-400">Stunning Spaces</span>
         </h2>
-        
+
         <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-8">
-          <div className="lg:w-2/3 relative overflow-hidden rounded-2xl shadow-2xl mb-8 lg:mb-0">
+          <div className="relative lg:w-2/3 overflow-hidden rounded-2xl shadow-2xl mb-8 lg:mb-0" style={{ height: '600px' }}>
             <AnimatePresence initial={false} custom={direction}>
-              <motion.img
+              <motion.div
                 key={currentIndex}
-                src={images[currentIndex].src}
-                alt={images[currentIndex].alt}
-                className="w-full h-64 sm:h-80 lg:h-[600px] object-cover"
                 custom={direction}
                 variants={variants}
                 initial="enter"
@@ -90,11 +86,21 @@ const ImageGallery = () => {
                 exit="exit"
                 transition={{
                   x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.5 }, // Ensure the opacity transition matches the timing of the slide
+                  opacity: { duration: 0.5 },
                 }}
-              />
+                className="absolute inset-0 w-full h-full"
+                style={{ overflow: 'hidden' }}
+              >
+                <img
+                  src={images[currentIndex].src}
+                  alt={images[currentIndex].alt}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"/>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+
             <button
               onClick={prevSlide}
               className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-white/10 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
