@@ -13,6 +13,7 @@ const FeatureItem = ({ icon, text }) => (
   </motion.div>
 );
 
+
 const ImageSlideshow = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
@@ -44,7 +45,7 @@ const ImageSlideshow = () => {
       />
     ))}
   </div>
-  <div className="absolute -bottom-6 -right-6 bg-purple-600 text-white p-4 md:p-6 rounded-full shadow-2xl z-10">
+  <div className="absolute -bottom-6 -right-6 bg-purple-300 text-white p-4 md:p-6 rounded-full shadow-2xl z-10">
     <span className="text-xl md:text-2xl font-bold">6+</span>
     <br />
     <span className="text-xs md:text-sm">Years of Excellence</span>
@@ -76,7 +77,7 @@ const OurStory = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            Our <span className="text-purple-600">Culinary</span> Journey
+            Our <span className="text-purple-300">Culinary</span> Journey
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Embark on a gastronomic adventure with us, where every dish tells a story and every meal is a celebration of flavors.
