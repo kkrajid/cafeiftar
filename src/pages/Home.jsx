@@ -7,6 +7,7 @@ import Services from '../components/Services';
 import OurStory from '../components/OurStory';
 import FeaturesAndPopular from '../components/FeaturesAndPopular';
 import ImageGallery from '../components/ImageGallery';
+import RestaurantImageGallery from '../components/RestaurantImageGallery';
 
 function Home() {
   // Sample data for demonstration
@@ -30,6 +31,7 @@ function Home() {
       <OurStory/>
       {/* <MenuHighlights dishes={dishes} /> */}
       <ImageGallery/>
+      <RestaurantImageGallery/>
       {/* <OurDelicious dishes={dishes} />  */}
       <TestimonialsSection />
     </div>
